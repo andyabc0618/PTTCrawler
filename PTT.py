@@ -34,7 +34,7 @@ def ptt_search(url, keyword, date_start):
 
 
 def fetch(url):
-    # 傳入網址，向 PTT 回答已經滿 18 歲，回傳網頁內容
+    # 向 PTT 回答已經滿 18 歲，回傳網頁內容
     response = requests.get(url, cookies={'over18':'1'})
     return response
 
@@ -44,7 +44,6 @@ def showtable_Article( gui, df):
     table = gui.tableWidget
     table.setColumnCount(len(keys))
     table.setRowCount(len(df[keys[0]])+1)
-    # table.horizontalHeader().setSectionResizeMode(QtWidgets.QHeaderView.Stretch)
     table.setColumnWidth(0,80)
     table.setColumnWidth(1,700)
     table.setColumnWidth(2,200)
@@ -68,8 +67,5 @@ def showtable_Article( gui, df):
                 item.setForeground(QBrush(QColor(0,0,255)))
 
             table.setItem( i, j, item)
-
-
-
 
 

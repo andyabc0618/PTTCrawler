@@ -47,17 +47,3 @@ if __name__ == '__main__':
     window = MainWindow() 
     window.show()
     app.exec_() # GUI keep showing
-
-    # URL        = 'https://www.ptt.cc/bbs/Lifeismoney/index.html'
-    # KEYWORD    = 'momo'
-    # date_start = '2021/11/01'
-    # date_end   = '2022/01/11'
-    # date_start = datetime.strptime( date_start, '%Y/%m/%d')
-    # date_end   = datetime.strptime( date_end, '%Y/%m/%d')
-    # PTT.ptt_alert(URL, KEYWORD, date_start) # 開始執行
-
-
-    # try:
-            
-    # except Exception as e:
-    #     print('[%s] 執行期間錯誤：%s' %(datetime.now(), e))

@@ -25,8 +25,6 @@ def filter_meta( entryies, keyword):
     data_list = []
     for entry in entryies:
         meta = parse_meta(entry)
-        # 如果找到關鍵字，而且還沒截止，寄信通知我
-        # 記得先試著轉小寫，否則大小寫視作不同
         if keyword in meta['title'].lower() :
             print(meta['title'])
             data_list.append(meta)
@@ -41,7 +39,6 @@ def filter_meta( entryies, keyword):
 
 
 def parse_meta(entry):
-    # 將 r-ent 元素的內容格式化成 dict 再回傳'
     meta = {
         'title': entry.find('div.title', first=True).text,
         'push' : entry.find('div.nrec', first=True).text,
@@ -50,11 +47,9 @@ def parse_meta(entry):
     meta['date'] = datetime.strptime(meta['date'],'%m/%d')
     meta['date'] = Functions.date_compare(meta['date'])
     try:
-        # 正常的文章可以取得作者和連結
         meta['author'] = entry.find('div.author', first=True).text
         meta['link'] = 'https://www.ptt.cc/'+entry.find('div.title > a', first=True).attrs['href']
     except AttributeError:
-        # 被刪除的文章我們就不要了
         meta['author'] = '[Deleted]'
         meta['link'] = '[Deleted]'
 
